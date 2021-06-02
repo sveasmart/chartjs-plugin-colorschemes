@@ -25,6 +25,19 @@ module.exports = [
 			'chart.js'
 		]
 	},
+  {
+		input: 'src/index.js',
+		output: {
+			name: 'ChartColorSchemes',
+			file: `dist/chartjs-plugin-colorschemes.esm.js`,
+			banner: banner,
+			format: 'es',
+			indent: false,
+		},
+		external: [
+			'chart.js'
+		]
+	},
 	{
 		input: 'src/index.js',
 		output: {
