@@ -1,19 +1,19 @@
 {
-  "name": "chartjs-plugin-colorschemes",
+  "name": "hw-chartjs-plugin-colorschemes",
   "homepage": "https://nagix.github.io/chartjs-plugin-colorschemes",
   "description": "Predefined color schemes for Chart.js",
   "author": "Akihiko Kusanagi <nagi@nagi-p.com> (https://nagix.github.io/)",
-  "version": "0.4.0",
+  "version": "0.5.2",
   "license": "MIT",
   "jsdelivr": "dist/chartjs-plugin-colorschemes.min.js",
   "unpkg": "dist/chartjs-plugin-colorschemes.min.js",
   "main": "dist/chartjs-plugin-colorschemes.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nagix/chartjs-plugin-colorschemes.git"
+    "url": "https://github.com/MaximBelov/chartjs-plugin-colorschemes.git"
   },
   "bugs": {
-    "url": "https://github.com/nagix/chartjs-plugin-colorschemes/issues"
+    "url": "https://github.com/MaximBelov/chartjs-plugin-colorschemes/issues"
   },
   "keywords": [
     "chart.js",
@@ -35,7 +35,7 @@
     "test": "test"
   },
   "devDependencies": {
-    "chart.js": "~2.8.0",
+    "chart.js": "3",
     "eslint-config-chartjs": "^0.1.0",
     "eslint-plugin-es": "^1.4.0",
     "eslint-plugin-html": "^5.0.3",
@@ -63,6 +63,6 @@
     "yargs": "^13.2.2"
   },
   "peerDependencies": {
-    "chart.js": ">= 2.5.0 < 3"
+    "chart.js": "2.5.0 - 4"
   }
 }

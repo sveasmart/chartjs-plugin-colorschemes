@@ -13,7 +13,7 @@ module.exports = [
 		input: 'src/index.js',
 		output: {
 			name: 'ChartColorSchemes',
-			file: `dist/${pkg.name}.js`,
+			file: `dist/chartjs-plugin-colorschemes.js`,
 			banner: banner,
 			format: 'umd',
 			indent: false,
@@ -29,7 +29,7 @@ module.exports = [
 		input: 'src/index.js',
 		output: {
 			name: 'ChartColorSchemes',
-			file: `dist/${pkg.name}.min.js`,
+			file: `dist/chartjs-plugin-colorschemes.min.js`,
 			format: 'umd',
 			indent: false,
 			globals: {
