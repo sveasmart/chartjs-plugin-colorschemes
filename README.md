@@ -6,7 +6,19 @@
 
 You can pick the perfect color combination for your charts from the predefined color schemes, which are based on popular tools such as [ColorBrewer](http://colorbrewer2.org), [Microsoft Office](https://products.office.com) and [Tableau](https://www.tableau.com).
 
-This plugin requires Chart.js 2.5.0 or later.
+This plugin requires Chart.js 4 or later.
+
+## Compatibility
+
+| Chart.js  | chartjs-plugin-colorschemes |
+|-----------|-----------------------------|
+| 4         | 0.6.1                       |
+| 3         | 0.5.4                       |
+
+
+v0.5.4 for Chart.js 3.x
+
+From v0.6.1 for 4+
 
 ## Installation
 
@@ -27,10 +39,10 @@ bower install hw-chartjs-plugin-colorschemes --save
 To use CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+<script src="https://cdn.jsdelivr.net/npm/hw-chartjs-plugin-colorschemes"></script>
 ```
 ```html
-<script src="https://unpkg.com/chartjs-plugin-colorschemes"></script>
+<script src="https://unpkg.com/hw-chartjs-plugin-colorschemes"></script>
 ```
 
 ## Usage

@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "author": "Akihiko Kusanagi <nagi@nagi-p.com> (https://nagix.github.io/)",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "license": "MIT",
   "jsdelivr": "dist/chartjs-plugin-colorschemes.min.js",
   "unpkg": "dist/chartjs-plugin-colorschemes.min.js",
@@ -43,7 +43,7 @@
     "build": "gulp build"
   },
   "devDependencies": {
-    "chart.js": "3",
+    "chart.js": "latest",
     "eslint-config-chartjs": "^0.1.0",
     "eslint-plugin-es": "^1.4.0",
     "eslint-plugin-html": "^5.0.3",
