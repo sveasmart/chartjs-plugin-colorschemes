@@ -18,8 +18,8 @@ export default {
 				padding: 4
 			},
 			scales: {
-				xAxes: [{display: false}],
-				yAxes: [{display: false}]
+				x: {display: false},
+				y: {display: false}
 			},
 			plugins: {
 				colorschemes: {

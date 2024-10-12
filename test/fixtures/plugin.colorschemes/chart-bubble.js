@@ -38,8 +38,8 @@ export default {
 				padding: 30
 			},
 			scales: {
-				xAxes: [{display: false}],
-				yAxes: [{display: false}]
+				x: {display: false},
+				y: {display: false}
 			},
 			plugins: {
 				colorschemes: {

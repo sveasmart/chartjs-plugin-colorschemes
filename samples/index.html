@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>chartjs-plugin-colorschemes sample</title>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4"></script>
 	<script src="../dist/chartjs-plugin-colorschemes.js"></script>
 	<style>
 		canvas {
@@ -78,20 +78,20 @@
 					intersect: true
 				},
 				scales: {
-					xAxes: [{
+					x: {
 						display: true,
 						scaleLabel: {
 							display: true,
 							labelString: 'Month'
 						}
-					}],
-					yAxes: [{
+					},
+					y:{
 						display: true,
 						scaleLabel: {
 							display: true,
 							labelString: 'Value'
 						}
-					}]
+					}
 				},
 				plugins: {
 					colorschemes: {
@@ -182,8 +182,8 @@
 		document.getElementById('background').addEventListener('change', function(event) {
 			var globalDefaults = Chart.defaults.global;
 			var options = config.options;
-			var xGridLines = options.scales.xAxes[0].gridLines;
-			var yGridLines = options.scales.yAxes[0].gridLines;
+			var xGridLines = options.scales.x.gridLines;
+			var yGridLines = options.scales.y.gridLines;
 			var tooltips = options.tooltips;
 
 			document.getElementsByTagName('body')[0].bgColor = event.target.value;
