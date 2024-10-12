@@ -15,13 +15,13 @@ You can download the latest version of chartjs-plugin-colorschemes from the [Git
 To install via npm:
 
 ```bash
-npm install chartjs-plugin-colorschemes --save
+npm install hw-chartjs-plugin-colorschemes --save
 ```
 
 To install via bower:
 
 ```bash
-bower install chartjs-plugin-colorschemes --save
+bower install hw-chartjs-plugin-colorschemes --save
 ```
 
 To use CDN:
