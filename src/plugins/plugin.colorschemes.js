@@ -2,16 +2,9 @@
 
 import {Chart} from 'chart.js';
 
-// Element models are always reset when hovering in Chart.js 2.7.2 or earlier
-var hoverReset = false; //todo: is necessary on v3?
-
 var EXPANDO_KEY = '$colorschemes';
 
-// pluginBase snippet fixes the chartjs 3 incompatibility, and is backwards-compatible
-// by Github user gebrits (https://github.com/gebrits/chartjs-plugin-colorschemes)
-//
-// Chartjs 2 => Chart.defaults.global
-// Chartjs 3 => Chart.defaults
+
 const pluginBase = Chart.defaults.global || Chart.defaults;
 pluginBase.plugins.colorschemes = {
 	scheme: 'brewer.Paired12',
@@ -48,7 +41,7 @@ var ColorSchemesPlugin = {
 	id: 'colorschemes',
 
 	beforeUpdate: function(chart, args, options) {
-    var helpers = Chart.helpers;
+		var helpers = Chart.helpers;
 		// Please note that in v3, the args argument was added. It was not used before it was added,
 		// so we just check if it is not actually our options object
 		if (options === undefined) {
@@ -156,25 +149,16 @@ var ColorSchemesPlugin = {
 		});
 	},
 
-	beforeEvent: function(chart, event, options) {
-		if (hoverReset) {
-			this.beforeUpdate(chart, options);
-		}
+	beforeEvent: function() {
+
 	},
 
-	afterEvent: function(chart) {
-		if (hoverReset) {
-			this.afterUpdate(chart);
-		}
+	afterEvent: function() {
+
 	}
 };
 
-if (Chart.registry) {
-  // Chartjs 3
-  Chart.register(ColorSchemesPlugin);
-} else {
-  // Chartjs 2
-  Chart.plugins.register(ColorSchemesPlugin);
-}
+const registerPlugin = Chart.register || Chart.plugins.register;
+registerPlugin(ColorSchemesPlugin);
 
 export default ColorSchemesPlugin;
