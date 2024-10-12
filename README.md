@@ -16,10 +16,6 @@ This plugin requires Chart.js 4 or later.
 | 3         | 0.5.4                       |
 
 
-v0.5.4 for Chart.js 3.x
-
-From v0.6.1 for 4+
-
 ## Installation
 
 You can download the latest version of chartjs-plugin-colorschemes from the [GitHub releases](https://github.com/nagix/chartjs-plugin-colorschemes/releases/latest).
