@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "author": "Akihiko Kusanagi <nagi@nagi-p.com> (https://nagix.github.io/)",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "license": "MIT",
   "jsdelivr": "dist/chartjs-plugin-colorschemes.min.js",
   "unpkg": "dist/chartjs-plugin-colorschemes.min.js",
