@@ -1,4 +1,4 @@
-name: Publishing
+name: Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,6 +14,7 @@ jobs:
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: stable
@@ -29,8 +30,32 @@ jobs:
           path: ./coverage/cobertura-coverage.xml
           threshold: 80.123
           fail: true
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm i
       - name: Lint
         run: gulp lint
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm i
       - name: Bower
         run: gulp bower
       - name: Build
