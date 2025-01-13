@@ -1,9 +1,9 @@
 'use strict';
 
-import {Chart} from 'chart.js';
+import { Chart } from 'chart.js';
+import { color as Color } from 'chart.js/helpers';
 
 var EXPANDO_KEY = '$colorschemes';
-
 
 const pluginBase = Chart.defaults;
 pluginBase.plugins.colorschemes = {
@@ -41,7 +41,6 @@ var ColorSchemesPlugin = {
 	id: 'colorschemes',
 
 	beforeUpdate: function(chart, args, options) {
-		var helpers = Chart.helpers;
 		// Please note that in v3, the args argument was added. It was not used before it was added,
 		// so we just check if it is not actually our options object
 		if (options === undefined) {
@@ -56,7 +55,6 @@ var ColorSchemesPlugin = {
 		var schemeClone, customResult, length, colorIndex, color;
 
 		if (scheme) {
-
 			if (typeof custom === 'function') {
 				// clone the original scheme
 				schemeClone = scheme.slice();
@@ -89,7 +87,7 @@ var ColorSchemesPlugin = {
 				case 'scatter':
 					if (typeof dataset.backgroundColor === 'undefined' || override) {
 						dataset[EXPANDO_KEY].backgroundColor = dataset.backgroundColor;
-						dataset.backgroundColor = helpers.color(color).alpha(fillAlpha).rgbString();
+						dataset.backgroundColor = Color(color).alpha(fillAlpha).rgbString();
 					}
 					if (typeof dataset.borderColor === 'undefined' || override) {
 						dataset[EXPANDO_KEY].borderColor = dataset.borderColor;
@@ -97,7 +95,7 @@ var ColorSchemesPlugin = {
 					}
 					if (typeof dataset.pointBackgroundColor === 'undefined' || override) {
 						dataset[EXPANDO_KEY].pointBackgroundColor = dataset.pointBackgroundColor;
-						dataset.pointBackgroundColor = helpers.color(color).alpha(fillAlpha).rgbString();
+						dataset.pointBackgroundColor = Color(color).alpha(fillAlpha).rgbString();
 					}
 					if (typeof dataset.pointBorderColor === 'undefined' || override) {
 						dataset[EXPANDO_KEY].pointBorderColor = dataset.pointBorderColor;
@@ -131,21 +129,21 @@ var ColorSchemesPlugin = {
 	afterUpdate: function(chart) {
 		// Unset colors
 		chart.config.data.datasets.forEach(function(dataset) {
-			if (dataset[EXPANDO_KEY]) {
-				if (dataset[EXPANDO_KEY].hasOwnProperty('backgroundColor')) {
-					dataset.backgroundColor = dataset[EXPANDO_KEY].backgroundColor;
-				}
-				if (dataset[EXPANDO_KEY].hasOwnProperty('borderColor')) {
-					dataset.borderColor = dataset[EXPANDO_KEY].borderColor;
-				}
-				if (dataset[EXPANDO_KEY].hasOwnProperty('pointBackgroundColor')) {
-					dataset.pointBackgroundColor = dataset[EXPANDO_KEY].pointBackgroundColor;
-				}
-				if (dataset[EXPANDO_KEY].hasOwnProperty('pointBorderColor')) {
-					dataset.pointBorderColor = dataset[EXPANDO_KEY].pointBorderColor;
-				}
-				delete dataset[EXPANDO_KEY];
-			}
+            if (dataset[EXPANDO_KEY]) {
+                if (Object.prototype.hasOwnProperty.call(dataset[EXPANDO_KEY], "backgroundColor")) {
+                    dataset.backgroundColor = dataset[EXPANDO_KEY].backgroundColor;
+                }
+                if (Object.prototype.hasOwnProperty.call(dataset[EXPANDO_KEY], "borderColor")) {
+                    dataset.borderColor = dataset[EXPANDO_KEY].borderColor;
+                }
+                if (Object.prototype.hasOwnProperty.call(dataset[EXPANDO_KEY], "pointBackgroundColor")) {
+                    dataset.pointBackgroundColor = dataset[EXPANDO_KEY].pointBackgroundColor;
+                }
+                if (Object.prototype.hasOwnProperty.call(dataset[EXPANDO_KEY], "pointBorderColor")) {
+                    dataset.pointBorderColor = dataset[EXPANDO_KEY].pointBorderColor;
+                }
+                delete dataset[EXPANDO_KEY];
+            }
 		});
 	},
 
