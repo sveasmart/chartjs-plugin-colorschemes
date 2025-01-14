@@ -1,5 +1,5 @@
-const terser = require('rollup-plugin-terser').terser;
-const pkg = require('./package.json');
+import terser from "@rollup/plugin-terser";
+import pkg from './package.json' with { type: 'json' };
 
 const banner = `/*!
  * ${pkg.name} v${pkg.version}
@@ -8,56 +8,52 @@ const banner = `/*!
  * Released under the ${pkg.license} license
  */`;
 
-module.exports = [
+ export default [
 	{
-		input: 'src/index.js',
-		output: {
-			name: 'ChartColorSchemes',
-			file: 'dist/chartjs-plugin-colorschemes.js',
-			banner: banner,
-			format: 'umd',
-			indent: false,
-			globals: {
-				'chart.js': 'Chart'
-			}
+	  input: 'src/index.js',
+	  external: ['chart.js', 'chart.js/helpers'],
+	  output: {
+		name: 'ChartColorSchemes',
+		file: 'dist/chartjs-plugin-colorschemes.js',
+		format: 'umd',
+		indent: false,
+		banner,
+		globals: {
+		  'chart.js': 'Chart',
+		  'chart.js/helpers': 'Chart.helpers',
 		},
-		external: [
-			'chart.js'
-		]
+	  },
 	},
 	{
-		input: 'src/index.js',
-		output: {
-			name: 'ChartColorSchemes',
-			file: 'dist/chartjs-plugin-colorschemes.esm.js',
-			banner: banner,
-			format: 'es',
-			indent: false,
-		},
-		external: [
-			'chart.js'
-		]
+	  input: 'src/index.js',
+	  external: ['chart.js', 'chart.js/helpers'],
+	  output: {
+		name: 'ChartColorSchemes',
+		file: 'dist/chartjs-plugin-colorschemes.esm.js',
+		format: 'es',
+		indent: false,
+		banner,
+	  },
 	},
 	{
-		input: 'src/index.js',
-		output: {
-			name: 'ChartColorSchemes',
-			file: 'dist/chartjs-plugin-colorschemes.min.js',
-			format: 'umd',
-			indent: false,
-			globals: {
-				'chart.js': 'Chart'
-			}
+	  input: 'src/index.js',
+	  external: ['chart.js', 'chart.js/helpers'],
+	  plugins: [
+		terser({
+		  output: {
+			preamble: banner,
+		  },
+		}),
+	  ],
+	  output: {
+		name: 'ChartColorSchemes',
+		file: 'dist/chartjs-plugin-colorschemes.min.js',
+		format: 'umd',
+		indent: false,
+		globals: {
+		  'chart.js': 'Chart',
+		  'chart.js/helpers': 'Chart.helpers',
 		},
-		plugins: [
-			terser({
-				output: {
-					preamble: banner
-				}
-			})
-		],
-		external: [
-			'chart.js'
-		]
-	}
-];
+	  },
+	},
+  ];
